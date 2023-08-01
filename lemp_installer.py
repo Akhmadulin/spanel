@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 def run_command(command):
     print(f"Executing: {command}")
@@ -10,8 +11,27 @@ def install_lemp():
     run_command("sudo apt install nginx -y")
     
     # Установка MySQL
-    run_command("sudo apt install mysql-server -y")
-    run_command("sudo mysql_secure_installation")  # Настройка безопасности MySQL (можно пропустить)
+
+def install_mysql():
+    try:
+        # Обновление списка пакетов и установка MySQL
+        subprocess.run(["sudo", "apt", "install", "mysql-server", "-y"])
+
+        # Сохранение пароля MySQL в файл
+        password = "A5392420t"  # Замените на свой пароль
+        with open("mysql_password.txt", "w") as f:
+            f.write(password)
+
+        # Запуск MySQL и добавление автозапуска
+        subprocess.run(["sudo", "systemctl", "start", "mysql"])
+        subprocess.run(["sudo", "systemctl", "enable", "mysql"])
+
+        # Настройка безопасности MySQL (простой вариант без команды mysql_secure_installation)
+        subprocess.run(f"sudo mysql -e \"ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '{password}';\"")
+
+        print("MySQL успешно установлен и настроен. Пароль сохранен в файл 'mysql_password.txt'")
+    except Exception as e:
+        print("Ошибка при установке MySQL:", e)
 
     # Установка PHP
     run_command("sudo apt install php7.4-fpm php7.4-mysql php7.4-mbstring php7.4-xml php7.4-bcmath php7.4-gd php7.4-zip -y")
