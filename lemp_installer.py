@@ -28,7 +28,18 @@ def install_lemp():
 
     #Установка дополнительных утилит
     run_command("sudo apt install net-tools mc htop -y")
-    run command("python3 mysql.py")
+    
+    #Установка MySQL
+    def call_script2():
+    try:
+        result = subprocess.run(["python3", "mysql.py"], capture_output=True, text=True)
+        print("Результат выполнения mysql.py:")
+        print(result.stdout)
+    except Exception as e:
+        print("Ошибка при вызове mysql.py:", e)
+
+if __name__ == "__main__":
+    call_script2()
     
     print("LEMP установлен и настроен успешно!")
 
