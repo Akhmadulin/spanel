@@ -28,6 +28,9 @@ def install_lemp():
     run_command("sudo systemctl restart nginx")
     run_command("sudo systemctl restart php7.4-fpm")
     run_command("sudo systemctl restart mysql")
+
+    #Установка дополнительных утилит
+    run_command("sudo apt install net-tools mc htop -y")
     
     print("LEMP установлен и настроен успешно!")
 
