@@ -28,7 +28,7 @@ def install_lemp():
     run_command("sudo systemctl restart mysql")
 
     #Установка дополнительных утилит
-    run_command("sudo apt install net-tools mc htop -y")
+    run_command("sudo apt install net-tools mc htop zip unzip p7zip-full -y")
     install_mysql() //Здесь есть проблема
     print("LEMP установлен и настроен успешно!")
 
