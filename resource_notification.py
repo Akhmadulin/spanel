@@ -3,8 +3,8 @@ import requests
 import time
 
 # Замените YOUR_BOT_TOKEN на токен вашего телеграм-бота
-BOT_TOKEN = "YOUR_BOT_TOKEN"
-CHAT_ID = "YOUR_CHAT_ID"  # Замените на ID вашего телеграм-чата или пользователя
+BOT_TOKEN = "6552760294:AAHHB5qJuSjGFdFZnt1F65ivG4aEB1o8U1A"
+CHAT_ID = "1053452769"  # Замените на ID вашего телеграм-чата или пользователя
 
 # Переменные для хранения предыдущих значений нагрузки
 previous_cpu_usage = None
