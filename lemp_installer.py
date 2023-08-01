@@ -1,5 +1,6 @@
 import os
 import subprocess
+from mysql_installer import install_mysql
 
 def run_command(command):
     print(f"Executing: {command}")
@@ -28,7 +29,7 @@ def install_lemp():
 
     #Установка дополнительных утилит
     run_command("sudo apt install net-tools mc htop -y")
-    
+    install_mysql()
     print("LEMP установлен и настроен успешно!")
 
 if __name__ == "__main__":
