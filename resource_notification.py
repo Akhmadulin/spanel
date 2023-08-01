@@ -26,21 +26,45 @@ def check_resource_usage():
         cpu_usage = psutil.cpu_percent(interval=1)
         if cpu_usage > 70:
             send_message(f"Внимание! Загрузка CPU превышает 70%: {cpu_usage}%")
+        if cpu_usage > 80:
+            send_message(f"Внимание! Загрузка CPU превышает 80%: {cpu_usage}%")
+        if cpu_usage > 90:
+            send_message(f"Внимание! Загрузка CPU превышает 90%: {cpu_usage}%")
+        if cpu_usage == 100:
+            send_message(f"Критическое состояние! Загрузка CPU достигла 100%: {cpu_usage}%")
 
         # Мониторинг использования памяти
         memory_usage = psutil.virtual_memory().percent
         if memory_usage > 70:
             send_message(f"Внимание! Использование памяти превышает 70%: {memory_usage}%")
+        if memory_usage > 80:
+            send_message(f"Внимание! Использование памяти превышает 80%: {memory_usage}%")
+        if memory_usage > 90:
+            send_message(f"Внимание! Использование памяти превышает 90%: {memory_usage}%")
+        if memory_usage == 100:
+            send_message(f"Критическое состояние! Использование памяти достигло 100%: {memory_usage}%")
 
         # Мониторинг использования swap
         swap_usage = psutil.swap_memory().percent
         if swap_usage > 70:
             send_message(f"Внимание! Использование swap превышает 70%: {swap_usage}%")
+        if swap_usage > 80:
+            send_message(f"Внимание! Использование swap превышает 80%: {swap_usage}%")
+        if swap_usage > 90:
+            send_message(f"Внимание! Использование swap превышает 90%: {swap_usage}%")
+        if swap_usage == 100:
+            send_message(f"Критическое состояние! Использование swap достигло 100%: {swap_usage}%")
 
         # Мониторинг использования жесткого диска
         disk_usage = psutil.disk_usage('/').percent
         if disk_usage > 70:
             send_message(f"Внимание! Использование места на жестком диске превышает 70%: {disk_usage}%")
+        if disk_usage > 80:
+            send_message(f"Внимание! Использование места на жестком диске превышает 80%: {disk_usage}%")
+        if disk_usage > 90:
+            send_message(f"Внимание! Использование места на жестком диске превышает 90%: {disk_usage}%")
+        if disk_usage == 100:
+            send_message(f"Критическое состояние! Использование места на жестком диске достигло 100%: {disk_usage}%")
 
         # Отправка уведомления при загрузке сервера
         uptime_minutes = get_uptime()
