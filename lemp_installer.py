@@ -29,7 +29,7 @@ def install_lemp():
 
     #Установка дополнительных утилит
     run_command("sudo apt install net-tools mc htop -y")
-    install_mysql()
+    install_mysql() //Здесь есть проблема
     print("LEMP установлен и настроен успешно!")
 
 if __name__ == "__main__":
