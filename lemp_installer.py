@@ -21,7 +21,9 @@ def install_lemp():
     php_conf = php_conf.replace('www-data', 'nginx')
     with open(php_fpm_conf_file, 'w') as f:
         f.write(php_conf)
-
+    # Вызов функции установки mysql
+    install_mysql() //Здесь есть проблема
+    
     # Перезапуск служб
     run_command("sudo systemctl restart nginx")
     run_command("sudo systemctl restart php7.4-fpm")
@@ -29,7 +31,6 @@ def install_lemp():
 
     #Установка дополнительных утилит
     run_command("sudo apt install net-tools mc htop zip unzip p7zip-full -y")
-    install_mysql() //Здесь есть проблема
     print("LEMP установлен и настроен успешно!")
 
 if __name__ == "__main__":
