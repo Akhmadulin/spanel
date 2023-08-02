@@ -56,7 +56,7 @@ def check_resource_usage():
 
         # Отправка уведомления при загрузке сервера
         uptime_minutes = get_uptime()
-        if uptime_minutes < 2:
+        if uptime_minutes < 1:
             send_message("Сервер был перезагружен.")
 
         time.sleep(60)  # Проверка каждые 60 секунд
