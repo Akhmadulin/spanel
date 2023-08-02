@@ -12,10 +12,10 @@ def install_lemp():
     run_command("sudo apt install nginx -y")
 
     # Установка PHP
-    run_command("sudo apt install php7.4-fpm php7.4-mysql php7.4-mbstring php7.4-xml php7.4-bcmath php7.4-gd php7.4-zip -y")
+    run_command("sudo apt install php8.1-fpm php8.1-mysql php8.1-mbstring php8.1-xml php8.1-bcmath php8.1-gd php8.1-zip -y")
   
     # Настройка PHP-FPM
-    php_fpm_conf_file = '/etc/php/7.4/fpm/pool.d/www.conf'  # Путь к файлу конфигурации PHP-FPM (может отличаться в разных версиях Ubuntu)
+    php_fpm_conf_file = '/etc/php/8.1/fpm/pool.d/www.conf'  # Путь к файлу конфигурации PHP-FPM (может отличаться в разных версиях Ubuntu)
     with open(php_fpm_conf_file, 'r') as f:
         php_conf = f.read()
     php_conf = php_conf.replace('www-data', 'nginx')
