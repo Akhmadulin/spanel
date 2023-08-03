@@ -26,7 +26,7 @@ def install_lemp():
     
     # Перезапуск служб
     run_command("sudo systemctl restart nginx")
-    run_command("sudo systemctl restart php7.4-fpm")
+    run_command("sudo systemctl restart php8.1-fpm")
     run_command("sudo systemctl restart mysql")
 
     #Установка дополнительных утилит
