@@ -22,7 +22,7 @@ def install_lemp():
     with open(php_fpm_conf_file, 'w') as f:
         f.write(php_conf)
     # Вызов функции установки mysql
-    install_mysql() //Здесь есть проблема
+    install_mysql() #Здесь есть проблема
     
     # Перезапуск служб
     run_command("sudo systemctl restart nginx")
