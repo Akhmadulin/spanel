@@ -12,7 +12,7 @@ def install_lemp():
     run_command("sudo apt install nginx -y")
 
     # Установка PHP
-    run_command("sudo apt install php8.1 php8.1-{cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip,xml} -y")
+    run_command("sudo apt install php8.1 php8.1-{fpm,cli,bcmath,bz2,curl,intl,gd,mbstring,mysql,zip,xml} -y")
   
     # Настройка PHP-FPM
     php_fpm_conf_file = '/etc/php/8.1/fpm/pool.d/www.conf'  # Путь к файлу конфигурации PHP-FPM (может отличаться в разных версиях Ubuntu)
